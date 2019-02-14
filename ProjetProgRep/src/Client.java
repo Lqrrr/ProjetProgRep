@@ -1,5 +1,4 @@
 import java.rmi.*;
-import java.rmi.server.*;
 
 // programme client pour l'exemple "Hello, world!"
 public class Client {
