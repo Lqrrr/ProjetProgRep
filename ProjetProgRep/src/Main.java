@@ -17,9 +17,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("accueil.fxml"));
-        primaryStage.setTitle("Logiciel de jeux en réseau");
+        primaryStage.setTitle("Logiciel de jeux en rÃ©seau");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
+    
 
 }
