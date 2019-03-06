@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Jeu des allumettes">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <FlowPane.margin>
+            <Insets left="210.0" top="15.0" />
+         </FlowPane.margin>
+      </Label>
+      <FlowPane prefHeight="49.0" prefWidth="601.0">
+         <children>
+            <Label prefHeight="24.0" prefWidth="559.0" text="Objectif: Chacun leur tour le joueur et le serveur vont prendre une ou deux allumettes, le but de ce jeu">
+               <FlowPane.margin>
+                  <Insets left="20.0" />
+               </FlowPane.margin>
+            </Label>
+            <Label text="est de finir la partie avec un nombre d'allumettes impair.">
+               <FlowPane.margin>
+                  <Insets left="20.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+      </FlowPane>
+      <FlowPane prefHeight="200.0" prefWidth="604.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="601.0" text="Choisissez le nombre d'allumettes à prendre" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <FlowPane fx:id="pnl_allumettes" prefHeight="180.0" prefWidth="599.0" />
+         </children>
+      </FlowPane>
+      <FlowPane prefHeight="103.0" prefWidth="200.0">
+         <children>
+            <GridPane prefHeight="102.0" prefWidth="200.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="47.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="153.0" minWidth="10.0" prefWidth="153.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="42.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="btn_aide" fitHeight="50.0" fitWidth="50.0" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@depositphotos_33411891-stock-photo-question-mark-button.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btn_fermer" fitHeight="59.0" fitWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <image>
+                        <Image url="@bouton-quitter-png-5.png" />
+                     </image>
+                     <GridPane.margin>
+                        <Insets top="20.0" />
+                     </GridPane.margin>
+                  </ImageView>
+               </children>
+            </GridPane>
+         </children>
+      </FlowPane>
+      <FlowPane prefHeight="104.0" prefWidth="400.0">
+         <children>
+            <GridPane prefHeight="101.0" prefWidth="239.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="191.0" minWidth="10.0" prefWidth="189.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="114.0" minWidth="10.0" prefWidth="50.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="17.0" prefWidth="199.0" text="nombre d'allumettes joueur: " />
+                  <Label fx:id="lbl_comptejoueur" text="0" GridPane.columnIndex="1" />
+                  <Label text="Nombre d'allumettes IA:" GridPane.rowIndex="1" />
+                  <Label fx:id="lbl_compteia" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+            <GridPane prefHeight="101.0" prefWidth="158.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btn_1allumette" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="1 allumette" />
+                  <Button fx:id="btn_2allumettes" mnemonicParsing="false" prefHeight="25.0" prefWidth="138.0" text="2 allumettes" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </FlowPane>
+   </children>
+</FlowPane>
