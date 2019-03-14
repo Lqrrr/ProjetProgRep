@@ -1,3 +1,4 @@
+package home;
 
 // Interface de Hello
 import java.rmi.*;

@@ -1,3 +1,4 @@
+package home;
 
 
 import javafx.application.Application;
@@ -21,6 +22,4 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
-    
-
 }

@@ -1,3 +1,4 @@
+package home;
 
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;

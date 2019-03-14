@@ -1,3 +1,4 @@
+package home;
 
 // Implémentation de l'interface Hello
 import java.rmi.*;
@@ -6,9 +7,7 @@ import java.util.Random;
 
 public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 	
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	int allumettes;
 	boolean fin;

@@ -1,3 +1,4 @@
+package home;
 import java.rmi.*;
 
 // programme client pour l'exemple "Hello, world!"
