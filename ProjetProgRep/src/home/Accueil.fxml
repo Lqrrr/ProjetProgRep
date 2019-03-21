@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.AccueilController">
    <children>
       <Label text="Accueil" textAlignment="CENTER">
          <FlowPane.margin>
@@ -33,7 +33,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btn_allumettes" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="581.0" text="Jeu des allumettes" textFill="#bf1616" GridPane.rowIndex="1">
+            <Button fx:id="btnAllumette" alignment="CENTER" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="44.0" prefWidth="581.0" text="Jeu des allumettes" textFill="#bf1616" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
@@ -41,7 +41,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn_othello" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" prefWidth="581.0" text="Othello" textFill="#1ec1d0" GridPane.rowIndex="3">
+            <Button fx:id="btnOthello" alignment="CENTER" mnemonicParsing="false" prefHeight="44.0" onAction="#handleButtonClicks" prefWidth="581.0" text="Othello" textFill="#1ec1d0" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>
@@ -62,12 +62,12 @@
           <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="btn_aide" fitHeight="50.0" fitWidth="50.0" GridPane.rowIndex="2">
+            <ImageView fx:id="btn_aide" fitHeight="50.0" fitWidth="50.0" GridPane.rowIndex="2" >
                <image>
                   <Image url="@depositphotos_33411891-stock-photo-question-mark-button.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_fermer" fitHeight="59.0" fitWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ImageView fx:id="btn_fermer" fitHeight="59.0" fitWidth="63.0" GridPane.columnIndex="1" GridPane.rowIndex="2" >
                <image>
                   <Image url="@bouton-quitter-png-5.png" />
                </image>

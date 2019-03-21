@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -17,7 +16,7 @@ public class Main extends Application {
 	
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("accueil.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
         primaryStage.setTitle("Logiciel de jeux en réseau");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

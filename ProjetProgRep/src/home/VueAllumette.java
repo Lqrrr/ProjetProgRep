@@ -5,6 +5,7 @@ import java.net.URL;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -13,9 +14,9 @@ public class VueAllumette extends Stage{
 			public VueAllumette(){
 				try {
 					final URL fxmlURL=
-					getClass().getResource("/home/Allumettes.fxml");
+					getClass().getResource("Allumettes.fxml");
 					final FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
-					final AnchorPane node = (AnchorPane)fxmlLoader.load();
+					final FlowPane node = (FlowPane)fxmlLoader.load();
 					Scene scene = new Scene(node);
 					this.setScene(scene);
 					AllumetteController controleur = fxmlLoader.getController();
