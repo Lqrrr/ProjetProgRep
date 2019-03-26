@@ -63,8 +63,7 @@ public class AllumetteController implements Initializable{
 		@FXML
 		private Label lbl_info;
 		
-		
-
+	
 
 		public AllumetteController()
 	    {
@@ -102,8 +101,7 @@ public class AllumetteController implements Initializable{
 					}
 					btn_1allumette.setDisable(false);
 					btn_2allumettes.setDisable(false);
-					//actualiseInterface();
-
+					actualiseInterface();
 				}
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -112,6 +110,8 @@ public class AllumetteController implements Initializable{
 			} catch (NotBoundException e) {
 				e.printStackTrace();
 			}
+	
+
 		}
 
 	    @FXML
@@ -233,38 +233,29 @@ public class AllumetteController implements Initializable{
 	    
 	    public void actualiseInterface() throws RemoteException {
 	    	int all = this.allumetteInterface.getAllumettes();
-	    	
-	    	ArrayList<ImageView> images = new ArrayList<ImageView>() {
-			
-	    		private static final long serialVersionUID = 1L;
+	    	ArrayList<ImageView> tabimages = new ArrayList<ImageView>() {/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
 
 			{
-				add(img_allumette1);
-				add(img_allumette2);
-				add(img_allumette3);
-				add(img_allumette4);
-				add(img_allumette5);
-				add(img_allumette6);
-				add(img_allumette7);
-				add(img_allumette8);
-				add(img_allumette9);
-				add(img_allumette10);
-				add(img_allumette11);
-				add(img_allumette12);
-				add(img_allumette13);
-			}};
-			Iterator<ImageView> i = images.iterator();
-			int k = 1;
-			System.out.println("k : " +k+" \nallumettes : "+all);
-			while (i.hasNext()) {
-				if (k>all) {
-				   System.out.println("j'efface : "+i.next());
-			       i.next().setVisible(false);
-				}
-			       k=k+1;
-			}
-			
-		   
+	    		 add(img_allumette1);
+	    		 add(img_allumette2);
+	    		 add(img_allumette3);
+	    		 add(img_allumette4);
+	    		 add(img_allumette5);
+	    		 add(img_allumette6);
+	    		 add(img_allumette7);
+	    		 add(img_allumette8);
+	    		 add(img_allumette9);
+	    		 add(img_allumette10);
+	    		 add(img_allumette11);
+	    		 add(img_allumette12);
+	    		 add(img_allumette13);
+	    		}};
+	    	for (int i=all;i<=12;i++) {
+	    		tabimages.get(i).setVisible(false);
+	    	}
 	    }
 
 		
