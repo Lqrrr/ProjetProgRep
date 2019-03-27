@@ -233,11 +233,8 @@ public class AllumetteController implements Initializable{
 	    
 	    public void actualiseInterface() throws RemoteException {
 	    	int all = this.allumetteInterface.getAllumettes();
-	    	ArrayList<ImageView> tabimages = new ArrayList<ImageView>() {/**
-				 * 
-				 */
+	    	ArrayList<ImageView> tabimages = new ArrayList<ImageView>() {
 				private static final long serialVersionUID = 1L;
-
 			{
 	    		 add(img_allumette1);
 	    		 add(img_allumette2);

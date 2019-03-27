@@ -5,16 +5,16 @@ import java.rmi.*;
 import java.rmi.server.*;
 import java.util.Random;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+
 
 public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 	
 
 	private static final long serialVersionUID = 1L;
 	private int allumettes;
+	
+	private String plateau[][] = new String[8][8];
+	
 	
 	public JeuxImpl() throws RemoteException {
 		super();
@@ -86,6 +86,75 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 	}
 
 
+	public String[][] getPlateau() {
+		return plateau;
+	}
+
+
+	public void setPlateau(String[][] plateau) {
+		this.plateau = plateau;
+	}
+
+	
+	public void initPlateau(){
+		this.plateau[3][3] = "blanc";
+		this.plateau[4][4] = "blanc";
+		this.plateau[3][4] = "noir";
+		this.plateau[4][3] = "noir";
+	}
+	
+	public boolean finOthello(){
+		for(int i = 0;i<8;i++){
+			for(int j =0;j<8;j++)
+			{
+				if ((plateau[i][j] != "noir") && (plateau[i][j] != "blanc")){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public void affichePlateau(){
+		for(int i = 0;i<8;i++){
+			for(int j =0;j<8;j++)
+			{
+				System.out.println("("+i+","+j+") : "+plateau[i][j]);
+			}
+		}
+	}
+	
+	public int comptePionNoir(){
+		int compteur = 0;
+		for(int i = 0;i<8;i++){
+			for(int j =0;j<8;j++)
+			{
+				if (plateau[i][j] == "noir"){
+					compteur=compteur+1;
+				}	
+			}
+		}
+		return compteur;
+	}
+
+	public int comptePionBlanc(){
+		int compteur = 0;
+		for(int i = 0;i<8;i++){
+			for(int j =0;j<8;j++)
+			{
+				if (plateau[i][j] == "blanc"){
+					compteur=compteur+1;
+				}
+			}
+		}
+		return compteur;
+	}
+
+
+
+	
+
+	
 
 
 

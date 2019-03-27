@@ -42,7 +42,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <FlowPane fx:id="pnl_allumettes" prefHeight="180.0" prefWidth="599.0">
+            <FlowPane prefHeight="180.0" prefWidth="599.0">
                <children>
                   <ImageView fx:id="img_allumette1" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                      <image>
