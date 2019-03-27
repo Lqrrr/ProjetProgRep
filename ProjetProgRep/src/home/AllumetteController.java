@@ -159,7 +159,7 @@ public class AllumetteController implements Initializable{
 							 System.out.println("fin de partie");
 
 							 if (res % 2 == 1){
-								 lbl_info.setText("Bravo t'as gagné");
+								 lbl_info.setText("T'as gagné t'es le monstre du jeu des allumettes");
 							 }
 							 else {
 								 lbl_info.setText("T'as perdu t'es nul");

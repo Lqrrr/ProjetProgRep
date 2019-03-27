@@ -29,7 +29,7 @@ public class Client extends Application{
 	
 		private static final int port = 8000; 
 		
-		 @FXML
+			@FXML
 		    private Button btnAllumette;
 
 		    @FXML
