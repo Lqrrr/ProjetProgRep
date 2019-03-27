@@ -97,6 +97,12 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 
 	
 	public void initPlateau(){
+		for(int i = 0;i<8;i++){
+			for(int j =0;j<8;j++)
+			{
+				this.plateau[i][j]="vide";
+			}
+		}
 		this.plateau[3][3] = "blanc";
 		this.plateau[4][4] = "blanc";
 		this.plateau[3][4] = "noir";
@@ -107,7 +113,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if ((plateau[i][j] != "noir") && (plateau[i][j] != "blanc")){
+				if (this.plateau[i][j] == "vide"){
 					return false;
 				}
 			}
@@ -119,7 +125,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				System.out.println("("+i+","+j+") : "+plateau[i][j]);
+				System.out.println("("+i+","+j+") : "+this.plateau[i][j]);
 			}
 		}
 	}
@@ -129,7 +135,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (plateau[i][j] == "noir"){
+				if (this.plateau[i][j] == "noir"){
 					compteur=compteur+1;
 				}	
 			}
@@ -142,7 +148,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (plateau[i][j] == "blanc"){
+				if (this.plateau[i][j] == "blanc"){
 					compteur=compteur+1;
 				}
 			}
