@@ -133,9 +133,12 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				System.out.println("("+i+","+j+") : "+this.plateau[i][j]);
+				if (!this.plateau[i][j].equals("vide")){
+					System.out.println("("+i+","+j+") : "+this.plateau[i][j]);
+				}
 			}
 		}
+		System.out.println("---------------------------------------");
 	}
 	
 	public int comptePionNoir(){
@@ -156,7 +159,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (this.plateau[i][j].equals("noir")){
+				if (this.plateau[i][j].equals("blanc")){
 					compteur=compteur+1;
 				}
 			}

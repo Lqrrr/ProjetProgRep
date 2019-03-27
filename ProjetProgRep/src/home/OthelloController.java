@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
 public class OthelloController implements Initializable{
 	 private VueOthello vue;
 	 private JeuxInterface othelloInterface;
-	 private int tour=0;
+	 private int tour=1;
 	@FXML
 	private GridPane gridpane;
 	@FXML
@@ -74,204 +74,8 @@ public class OthelloController implements Initializable{
 			boolean place = false;
 			
 			if (tour%2 ==1) {
-				
-				if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
-					if(ligne-1>=0 && colonne-1>=0) {
-						if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("blanc")) {
-							while (ligne-i>=0 && colonne-i>=0 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne-j) + (ligne-j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne-j, colonne-j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if(ligne-1>=0) {
-						if (this.othelloInterface.getPlateauAt(ligne-1,colonne).equals("blanc")) {
-							while (ligne-i>=0 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get(colonne + (ligne-j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne-j, colonne, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if(ligne-1>=0 && colonne+1<=7) {
-						if (this.othelloInterface.getPlateauAt(ligne-1,colonne+1).equals("blanc")) {
-							while (ligne-i>=0 && colonne+i<=7 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne+j) + (ligne-j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne-j, colonne+j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if(colonne-1>=0) {
-						if (this.othelloInterface.getPlateauAt(ligne,colonne-1).equals("blanc")) {
-							while (colonne-i>=0 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne-j) + ligne*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne, colonne-j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if(colonne+1<=7) {
-						if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("blanc")) {
-							while (colonne+i>=0 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne+j) + ligne*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne, colonne+j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if(colonne-1>=0 && ligne+1<=7) {
-						if (this.othelloInterface.getPlateauAt(ligne+1,colonne-1).equals("blanc")) {
-							while (colonne-i>=0 && ligne+i<=7 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne-j) + (ligne+j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne+j, colonne-j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-					i=2;
-					j=1;
-					continu = true;
-					if (ligne+1<=7) {
-						if (this.othelloInterface.getPlateauAt(ligne+1,colonne).equals("blanc")) {
-							while (ligne+i<=7 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get(colonne + (ligne+j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne+j, colonne, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					
-					i=2;
-					j=1;
-					continu = true;
-					if (ligne+1<=7 && colonne+1<=7) {
-						if (this.othelloInterface.getPlateauAt(ligne+1,colonne+1).equals("blanc")) {
-							while (ligne+i<=7 && colonne+i<=7 && continu) {
-								if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("blanc")){
-									i++;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")) {
-									while (j<i) {
-										((Circle)gridpane.getChildren().get((colonne+j) + (ligne+j)*8)).setFill(Color.BLACK);
-										this.othelloInterface.setPlateauAt(ligne+j, colonne+j, "noir");
-										j++;
-									}	
-									continu=false;
-									place = true;
-								}
-								else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("vide")) {
-									continu=false;
-								}
-							}
-						}
-					}
-				}
-					if (place) {
-						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.BLACK);
-						this.othelloInterface.setPlateauAt(ligne, colonne, "noir");
-					}
-				}
-				else {
+				//----------------------------------------TourNoir--------------------------------------------------------------------
+
 					if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
 						if(ligne-1>=0 && colonne-1>=0) {
 							if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("blanc")) {
@@ -282,6 +86,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne-j) + (ligne-j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne-j) + (ligne-j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne-j, colonne-j, "noir");
 											j++;
 										}	
@@ -306,6 +112,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get(colonne + (ligne-j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get(colonne + (ligne-j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne-j, colonne, "noir");
 											j++;
 										}	
@@ -330,6 +138,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne+j) + (ligne-j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne+j) + (ligne-j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne-j, colonne+j, "noir");
 											j++;
 										}	
@@ -354,6 +164,9 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne-j) + ligne*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne-j) + ligne*8)).setStroke(Color.BLACK);
+	
+											
 											this.othelloInterface.setPlateauAt(ligne, colonne-j, "noir");
 											j++;
 										}	
@@ -378,6 +191,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne+j) + ligne*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne+j) + ligne*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne, colonne+j, "noir");
 											j++;
 										}	
@@ -402,6 +217,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne-j) + (ligne+j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne-j) + (ligne+j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne+j, colonne-j, "noir");
 											j++;
 										}	
@@ -426,6 +243,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get(colonne + (ligne+j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get(colonne + (ligne+j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne+j, colonne, "noir");
 											j++;
 										}	
@@ -437,7 +256,7 @@ public class OthelloController implements Initializable{
 									}
 								}
 							}
-						
+						}
 						i=2;
 						j=1;
 						continu = true;
@@ -450,6 +269,8 @@ public class OthelloController implements Initializable{
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")) {
 										while (j<i) {
 											((Circle)gridpane.getChildren().get((colonne+j) + (ligne+j)*8)).setFill(Color.BLACK);
+											((Circle)gridpane.getChildren().get((colonne+j) + (ligne+j)*8)).setStroke(Color.BLACK);
+	
 											this.othelloInterface.setPlateauAt(ligne+j, colonne+j, "noir");
 											j++;
 										}	
@@ -463,10 +284,233 @@ public class OthelloController implements Initializable{
 							}
 						}
 					}
-						if (place) {
-							((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.BLACK);
-							this.othelloInterface.setPlateauAt(ligne, colonne, "noir");
+					if (place) {
+						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.BLACK);
+						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
+						this.othelloInterface.setPlateauAt(ligne, colonne, "noir");
+						tour++;
+					}
+				
+			}
+				else {
+					//----------------------------------------TourBlanc--------------------------------------------------------------------
+					
+						if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
+							if(ligne-1>=0 && colonne-1>=0) {
+								if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("noir")) {
+									while (ligne-i>=0 && colonne-i>=0 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne-j) + (ligne-j)*8)).setFill(Color.WHITE);
+												((Circle)gridpane.getChildren().get((colonne-j) + (ligne-j)*8)).setStroke(Color.BLACK);
+	
+												this.othelloInterface.setPlateauAt(ligne-j, colonne-j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if(ligne-1>=0) {
+								if (this.othelloInterface.getPlateauAt(ligne-1,colonne).equals("noir")) {
+									while (ligne-i>=0 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get(colonne + (ligne-j)*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get(colonne + (ligne-j)*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne-j, colonne, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if(ligne-1>=0 && colonne+1<=7) {
+								if (this.othelloInterface.getPlateauAt(ligne-1,colonne+1).equals("noir")) {
+									while (ligne-i>=0 && colonne+i<=7 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne+j) + (ligne-j)*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get((colonne+j) + (ligne-j)*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne-j, colonne+j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if(colonne-1>=0) {
+								if (this.othelloInterface.getPlateauAt(ligne,colonne-1).equals("noir")) {
+									while (colonne-i>=0 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne-j) + ligne*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get((colonne-j) + ligne*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne, colonne-j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if(colonne+1<=7) {
+								if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("noir")) {
+									while (colonne+i>=0 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne+j) + ligne*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get((colonne+j) + ligne*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne, colonne+j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if(colonne-1>=0 && ligne+1<=7) {
+								if (this.othelloInterface.getPlateauAt(ligne+1,colonne-1).equals("noir")) {
+									while (colonne-i>=0 && ligne+i<=7 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne-j) + (ligne+j)*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get((colonne-j) + (ligne+j)*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne+j, colonne-j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if (ligne+1<=7) {
+								if (this.othelloInterface.getPlateauAt(ligne+1,colonne).equals("noir")) {
+									while (ligne+i<=7 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get(colonne + (ligne+j)*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get(colonne + (ligne+j)*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne+j, colonne, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
+							i=2;
+							j=1;
+							continu = true;
+							if (ligne+1<=7 && colonne+1<=7) {
+								if (this.othelloInterface.getPlateauAt(ligne+1,colonne+1).equals("noir")) {
+									while (ligne+i<=7 && colonne+i<=7 && continu) {
+										if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")){
+											i++;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("blanc")) {
+											while (j<i) {
+												((Circle)gridpane.getChildren().get((colonne+j) + (ligne+j)*8)).setFill(Color.WHITE);
+	
+												((Circle)gridpane.getChildren().get((colonne+j) + (ligne+j)*8)).setStroke(Color.BLACK);
+												this.othelloInterface.setPlateauAt(ligne+j, colonne+j, "blanc");
+												j++;
+											}	
+											continu=false;
+											place = true;
+										}
+										else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("vide")) {
+											continu=false;
+										}
+									}
+								}
+							}
 						}
+						if (place) {
+							((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.WHITE);
+	
+							((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
+							this.othelloInterface.setPlateauAt(ligne, colonne, "blanc");
+							tour++;
+	
+						}
+					
 				}
 				if (this.othelloInterface.finOthello()==true) {
 					int blanc = this.othelloInterface.comptePionBlanc();
@@ -481,13 +525,9 @@ public class OthelloController implements Initializable{
 						lbl_info.setText("Égalité, vous êtes des débiles");
 					}
 				}
-				}
+				this.othelloInterface.affichePlateau();
 			}
-		}
 		
-
-		
-
 		public void setVue(VueOthello vueOthello) {
 			this.vue = vueOthello;
 		}
