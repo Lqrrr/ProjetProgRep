@@ -19,7 +19,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label prefHeight="53.0" prefWidth="600.0" text="Objectif: Avoir plus de pions de sa couleur que l’adversaire à la fin de la partie. Celle-ci s’achève lorsque aucun des deux joueurs ne peut plus jouer de coup légal. Cela intervient généralement lorsque les 64 cases sont occupées." wrapText="true" />
+            <Label fx:id="lbl_info" prefHeight="53.0" prefWidth="600.0" text="Objectif: Avoir plus de pions de sa couleur que l’adversaire à la fin de la partie. Celle-ci s’achève lorsque aucun des deux joueurs ne peut plus jouer de coup légal. Cela intervient généralement lorsque les 64 cases sont occupées." wrapText="true" />
          </children>
       </FlowPane>
       <Pane prefHeight="300.0" prefWidth="600.0">

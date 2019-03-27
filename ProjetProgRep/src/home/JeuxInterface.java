@@ -23,4 +23,5 @@ public interface JeuxInterface extends Remote {
 	public void initPlateau() throws RemoteException;
 	public void affichePlateau() throws RemoteException;
 	public String getPlateauAt(int ligne, int colonne) throws RemoteException;
+	public void setPlateauAt(int ligne, int colonne, String pion) throws RemoteException;
 }

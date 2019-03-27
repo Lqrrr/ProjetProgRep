@@ -98,6 +98,10 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 	public void setPlateau(String[][] plateau) {
 		this.plateau = plateau;
 	}
+	
+	public void setPlateauAt(int ligne,int colonne, String pion) {
+		this.plateau[ligne][colonne] = pion;
+	}
 
 	
 	public void initPlateau(){
