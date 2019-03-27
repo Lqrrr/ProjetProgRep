@@ -89,6 +89,10 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 	public String[][] getPlateau() {
 		return plateau;
 	}
+	
+	public String getPlateauAt(int ligne,int colonne) {
+		return this.plateau[ligne][colonne];
+	}
 
 
 	public void setPlateau(String[][] plateau) {
@@ -113,7 +117,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (this.plateau[i][j] == "vide"){
+				if (this.plateau[i][j].equals("vide")){
 					return false;
 				}
 			}
@@ -135,7 +139,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (this.plateau[i][j] == "noir"){
+				if (this.plateau[i][j].equals("noir")){
 					compteur=compteur+1;
 				}	
 			}
@@ -148,7 +152,7 @@ public class JeuxImpl extends UnicastRemoteObject implements JeuxInterface {
 		for(int i = 0;i<8;i++){
 			for(int j =0;j<8;j++)
 			{
-				if (this.plateau[i][j] == "blanc"){
+				if (this.plateau[i][j].equals("noir")){
 					compteur=compteur+1;
 				}
 			}

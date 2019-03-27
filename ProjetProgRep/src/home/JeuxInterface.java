@@ -22,4 +22,5 @@ public interface JeuxInterface extends Remote {
 	public int comptePionBlanc() throws RemoteException;
 	public void initPlateau() throws RemoteException;
 	public void affichePlateau() throws RemoteException;
+	public String getPlateauAt(int ligne, int colonne) throws RemoteException;
 }
