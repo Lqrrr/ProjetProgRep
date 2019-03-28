@@ -288,7 +288,11 @@ public class OthelloController implements Initializable{
 						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.BLACK);
 						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
 						this.othelloInterface.setPlateauAt(ligne, colonne, "noir");
-						tour++;
+						//if (!passeBlanc()) {
+							tour++;
+							lbl_info.setText("Tour Blanc");
+						//}
+						
 					}
 				
 			}
@@ -507,7 +511,11 @@ public class OthelloController implements Initializable{
 	
 							((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
 							this.othelloInterface.setPlateauAt(ligne, colonne, "blanc");
-							tour++;
+							//if (!passeNoir()) {
+								tour++;
+								lbl_info.setText("Tour noir");
+							//}
+							
 	
 						}
 					
@@ -527,6 +535,402 @@ public class OthelloController implements Initializable{
 				}
 				this.othelloInterface.affichePlateau();
 			}
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    public boolean passeBlanc() throws RemoteException{
+	    	int i=2;int j=1; boolean continu=true;
+	    	for(int ligne = 0;ligne<8;ligne++){
+				for(int colonne =0;colonne<8;colonne++)
+				{
+					if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
+						if(ligne-1>=0 && colonne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("noir")) {
+								while (ligne-i>=0 && colonne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("blanc")) {
+										System.out.println("Blanc Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(ligne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne).equals("noir")) {
+								while (ligne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("blanc")) {
+										System.out.println("Blanc Passe"); 
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(ligne-1>=0 && colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne+1).equals("noir")) {
+								while (ligne-i>=0 && colonne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("blanc")) {
+										System.out.println("Blanc Passe"); 
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne,colonne-1).equals("noir")) {
+								while (colonne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("blanc")) {
+										System.out.println("Blanc Passe"); 
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("noir")) {
+								while (colonne+i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")) {
+										System.out.println("Blanc Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne-1>=0 && ligne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne-1).equals("noir")) {
+								while (colonne-i>=0 && ligne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("blanc")) {
+										System.out.println("Blanc Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if (ligne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne).equals("noir")) {
+								while (ligne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("blanc")) {
+										System.out.println("Blanc Passe");
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if (ligne+1<=7 && colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne+1).equals("noir")) {
+								while (ligne+i<=7 && colonne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("blanc")) {
+										System.out.println("Blanc Passe"); 
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+	    	return false;
+	    }
+	    
+	    
+	    public boolean passeNoir() throws RemoteException{
+	    	int i=2;int j=1; boolean continu=true;
+	    	for(int ligne = 0;ligne<8;ligne++){
+				for(int colonne =0;colonne<8;colonne++)
+				{
+					if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
+						if(ligne-1>=0 && colonne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("blanc")) {
+								while (ligne-i>=0 && colonne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")) {
+										System.out.println("Noir Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(ligne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne).equals("blanc")) {
+								while (ligne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")) {
+										System.out.println("Noir Passe"); 
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(ligne-1>=0 && colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne-1,colonne+1).equals("blanc")) {
+								while (ligne-i>=0 && colonne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")) {
+										System.out.println("Noir Passe"); 
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne-1>=0) {
+							if (this.othelloInterface.getPlateauAt(ligne,colonne-1).equals("blanc")) {
+								while (colonne-i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")) {
+										System.out.println("Noir Passe"); 
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("blanc")) {
+								while (colonne+i>=0 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")) {
+										System.out.println("Noir Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if(colonne-1>=0 && ligne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne-1).equals("blanc")) {
+								while (colonne-i>=0 && ligne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")) {
+										System.out.println("Noir Passe");
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if (ligne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne).equals("blanc")) {
+								while (ligne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")) {
+										System.out.println("Noir Passe");
+										continu=false;
+
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+						i=2;
+						j=1;
+						continu = true;
+						if (ligne+1<=7 && colonne+1<=7) {
+							if (this.othelloInterface.getPlateauAt(ligne+1,colonne+1).equals("blanc")) {
+								while (ligne+i<=7 && colonne+i<=7 && continu) {
+									if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("blanc")){
+										i++;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")) {
+										System.out.println("Noir Passe"); 
+										continu=false;
+										return true;
+									}
+									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("vide")) {
+										continu=false;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+	    	return false;
+	    }
 		
 		public void setVue(VueOthello vueOthello) {
 			this.vue = vueOthello;
