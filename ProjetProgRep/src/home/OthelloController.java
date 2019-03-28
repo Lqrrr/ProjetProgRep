@@ -18,10 +18,12 @@ public class OthelloController implements Initializable{
 	 private VueOthello vue;
 	 private JeuxInterface othelloInterface;
 	 private int tour=1;
-	@FXML
-	private GridPane gridpane;
-	@FXML
-	private Label lbl_info;
+	 
+	 @FXML
+	 private GridPane gridpane;
+	 
+	 @FXML
+	 private Label lbl_info;
 	
 	
 
@@ -40,7 +42,7 @@ public class OthelloController implements Initializable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (RemoteException e) {
-				// TODO Auto-generated catch blocky
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (NotBoundException e) {
 				// TODO Auto-generated catch block
@@ -184,7 +186,7 @@ public class OthelloController implements Initializable{
 						continu = true;
 						if(colonne+1<=7) {
 							if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("blanc")) {
-								while (colonne+i>=0 && continu) {
+								while (colonne+i<=7 && continu) {
 									if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")){
 										i++;
 									}
@@ -288,10 +290,14 @@ public class OthelloController implements Initializable{
 						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setFill(Color.BLACK);
 						((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
 						this.othelloInterface.setPlateauAt(ligne, colonne, "noir");
-						//if (!passeBlanc()) {
+						if (blancPeutJouer()) {
 							tour++;
 							lbl_info.setText("Tour Blanc");
-						//}
+						}
+						else {
+							lbl_info.setText("Tour Noir, Blanc passe");
+
+						}
 						
 					}
 				
@@ -406,7 +412,7 @@ public class OthelloController implements Initializable{
 							continu = true;
 							if(colonne+1<=7) {
 								if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("noir")) {
-									while (colonne+i>=0 && continu) {
+									while (colonne+i<=7 && continu) {
 										if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")){
 											i++;
 										}
@@ -511,10 +517,14 @@ public class OthelloController implements Initializable{
 	
 							((Circle)gridpane.getChildren().get(colonne + ligne*8)).setStroke(Color.BLACK);
 							this.othelloInterface.setPlateauAt(ligne, colonne, "blanc");
-							//if (!passeNoir()) {
+							if (noirPeutJouer()) {
 								tour++;
 								lbl_info.setText("Tour noir");
-							//}
+							}
+							else {
+								lbl_info.setText("Tour Blanc, Noir passe");
+
+							}
 							
 	
 						}
@@ -533,65 +543,19 @@ public class OthelloController implements Initializable{
 						lbl_info.setText("Égalité, vous êtes des débiles");
 					}
 				}
-				this.othelloInterface.affichePlateau();
 			}
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    public boolean passeBlanc() throws RemoteException{
+	   
+	    public boolean blancPeutJouer() throws RemoteException{
 	    	int i=2;int j=1; boolean continu=true;
 	    	for(int ligne = 0;ligne<8;ligne++){
-				for(int colonne =0;colonne<8;colonne++)
-				{
+	    		i=2;
+				j=1;
+				continu = true;
+				for(int colonne =0;colonne<8;colonne++){
+					i=2;
+					j=1;
+					continu = true;
 					if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
 						if(ligne-1>=0 && colonne-1>=0) {
 							if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("noir")) {
@@ -600,7 +564,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("blanc")) {
-										System.out.println("Blanc Passe");
 										continu=false;
 										return true;
 									}
@@ -620,7 +583,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("blanc")) {
-										System.out.println("Blanc Passe"); 
 										continu=false;
 
 										return true;
@@ -641,7 +603,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("blanc")) {
-										System.out.println("Blanc Passe"); 
 										continu=false;
 
 										return true;
@@ -662,7 +623,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("blanc")) {
-										System.out.println("Blanc Passe"); 
 										continu=false;
 										return true;
 									}
@@ -677,12 +637,11 @@ public class OthelloController implements Initializable{
 						continu = true;
 						if(colonne+1<=7) {
 							if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("noir")) {
-								while (colonne+i>=0 && continu) {
+								while (colonne+i<=7 && continu) {
 									if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")){
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")) {
-										System.out.println("Blanc Passe");
 										continu=false;
 										return true;
 									}
@@ -702,7 +661,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("blanc")) {
-										System.out.println("Blanc Passe");
 										continu=false;
 										return true;
 									}
@@ -722,7 +680,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("blanc")) {
-										System.out.println("Blanc Passe");
 										continu=false;
 
 										return true;
@@ -743,7 +700,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("blanc")) {
-										System.out.println("Blanc Passe"); 
 										continu=false;
 										return true;
 									}
@@ -754,17 +710,33 @@ public class OthelloController implements Initializable{
 							}
 						}
 					}
+					i=2;
+					j=1;
+					continu = true;
 				}
+				i=2;
+				j=1;
+				continu = true;
+
 			}
+	    	System.out.println("NOIR PASSE");
+
 	    	return false;
 	    }
 	    
 	    
-	    public boolean passeNoir() throws RemoteException{
+	    public boolean noirPeutJouer() throws RemoteException{
 	    	int i=2;int j=1; boolean continu=true;
 	    	for(int ligne = 0;ligne<8;ligne++){
+	    		i=2;
+				j=1;
+				continu = true;
 				for(int colonne =0;colonne<8;colonne++)
 				{
+					i=2;
+					j=1;
+					continu = true;
+					
 					if (this.othelloInterface.getPlateauAt(ligne,colonne).equals("vide")) {
 						if(ligne-1>=0 && colonne-1>=0) {
 							if (this.othelloInterface.getPlateauAt(ligne-1,colonne-1).equals("blanc")) {
@@ -773,7 +745,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne-i).equals("noir")) {
-										System.out.println("Noir Passe");
 										continu=false;
 										return true;
 									}
@@ -793,7 +764,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne).equals("noir")) {
-										System.out.println("Noir Passe"); 
 										continu=false;
 
 										return true;
@@ -814,7 +784,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne-i,colonne+i).equals("noir")) {
-										System.out.println("Noir Passe"); 
 										continu=false;
 
 										return true;
@@ -835,7 +804,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne-i).equals("noir")) {
-										System.out.println("Noir Passe"); 
 										continu=false;
 										return true;
 									}
@@ -850,12 +818,11 @@ public class OthelloController implements Initializable{
 						continu = true;
 						if(colonne+1<=7) {
 							if (this.othelloInterface.getPlateauAt(ligne,colonne+1).equals("blanc")) {
-								while (colonne+i>=0 && continu) {
+								while (colonne+i<=7 && continu) {
 									if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("blanc")){
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne,colonne+i).equals("noir")) {
-										System.out.println("Noir Passe");
 										continu=false;
 										return true;
 									}
@@ -875,7 +842,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne-i).equals("noir")) {
-										System.out.println("Noir Passe");
 										continu=false;
 										return true;
 									}
@@ -895,7 +861,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne).equals("noir")) {
-										System.out.println("Noir Passe");
 										continu=false;
 
 										return true;
@@ -916,7 +881,6 @@ public class OthelloController implements Initializable{
 										i++;
 									}
 									else if (this.othelloInterface.getPlateauAt(ligne+i,colonne+i).equals("noir")) {
-										System.out.println("Noir Passe"); 
 										continu=false;
 										return true;
 									}
@@ -927,12 +891,20 @@ public class OthelloController implements Initializable{
 							}
 						}
 					}
+					i=2;
+					j=1;
+					continu = true;
+					}
+				i=2;
+				j=1;
+				continu = true;
 				}
-			}
+	    	System.out.println("NOIR PASSE");
 	    	return false;
 	    }
 		
-		public void setVue(VueOthello vueOthello) {
+		
+	    public void setVue(VueOthello vueOthello) {
 			this.vue = vueOthello;
 		}
 
