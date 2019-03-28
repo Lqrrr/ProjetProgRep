@@ -1,4 +1,4 @@
-package home;
+package controleur;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.rmi.Naming;
@@ -12,6 +12,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import modele.JeuxInterface;
+import vue.VueOthello;
 import javafx.scene.control.Label;
 
 public class OthelloController implements Initializable{

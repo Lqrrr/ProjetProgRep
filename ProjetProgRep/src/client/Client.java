@@ -1,4 +1,4 @@
-package home;
+package client;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.*;
@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import modele.JeuxInterface;
+import vue.VueAllumette;
+import vue.VueOthello;
 import javafx.application.*;
 import javafx.event.ActionEvent;
 
@@ -17,7 +20,7 @@ public class Client extends Application{
 	    @Override
 	    public void start(Stage primaryStage){
 		    try{
-		        Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+		        Parent root = FXMLLoader.load(getClass().getResource("../vue/Accueil.fxml"));
 		        primaryStage.setTitle("Logiciel de jeux en réseau");
 		        primaryStage.setScene(new Scene(root));
 		        primaryStage.show();

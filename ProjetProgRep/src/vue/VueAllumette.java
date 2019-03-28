@@ -1,7 +1,8 @@
-package home;
+package vue;
 
 import java.net.URL;
 
+import controleur.AllumetteController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.FlowPane;

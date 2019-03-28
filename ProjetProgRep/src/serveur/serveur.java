@@ -1,10 +1,12 @@
-package home;
+package serveur;
 
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.*;
 import java.util.Random;
+
+import modele.JeuxImpl;
 
 public class serveur {
 

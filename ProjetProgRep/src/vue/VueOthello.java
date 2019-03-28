@@ -1,6 +1,7 @@
-package home;
+package vue;
 import java.net.URL;
 
+import controleur.OthelloController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;

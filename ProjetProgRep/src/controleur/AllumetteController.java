@@ -1,4 +1,4 @@
-package home;
+package controleur;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
 import javafx.scene.image.ImageView;
+import modele.JeuxInterface;
+import vue.VueAllumette;
 import javafx.scene.control.Label;
 
 public class AllumetteController implements Initializable{
@@ -161,7 +161,7 @@ public class AllumetteController implements Initializable{
 								 lbl_info.setText("T'as gagné t'es le monstre du jeu des allumettes");
 							 }
 							 else {
-								 lbl_info.setText("T'as perdu t'es nul");
+								 lbl_info.setText("T'as perdu t'es un débile");
 							 }
 						 }
 						 actualiseInterface();

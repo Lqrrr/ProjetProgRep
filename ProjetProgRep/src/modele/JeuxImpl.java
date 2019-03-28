@@ -1,4 +1,4 @@
-package home;
+package modele;
 
 // Implémentation de l'interface Hello
 import java.rmi.*;
